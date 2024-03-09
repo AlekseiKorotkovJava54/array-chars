@@ -36,4 +36,48 @@ class ArrayCharTest {
 		assertEquals(3, arrayChar1.lastIndexOf('2'));
 		assertEquals(-1, arrayChar1.lastIndexOf('9'));
 	}
+	@Test
+	void countTest() {
+		char[] ar1 = {'1','2','3','2'};
+		ArrayChar arrayChar1 = new ArrayChar(ar1);
+		assertEquals(2, arrayChar1.count('2'));
+		assertEquals(1, arrayChar1.count('1'));
+		assertEquals(0, arrayChar1.count('9'));
+	}
+	@Test
+	void compareToIgnporeCaseTest() {
+		compareToTest();
+		assertEquals(0, new ArrayChar(new char[] {'a','A'}).compareToIgnporeCase(new ArrayChar(new char[] {'A','a'})));
+	}
+	@Test
+	void containsTest() {
+	char[] ar1 = {'H','e','l','L','o'};
+	ArrayChar arrayChar1 = new ArrayChar(ar1);
+	assertTrue (arrayChar1.contains('H'));
+	assertTrue (arrayChar1.contains('e'));
+	assertFalse (arrayChar1.contains('h'));
+	assertFalse (arrayChar1.contains('A'));
+	}
+	@Test
+	void equalsTest() {
+		char[] ar1 = {'H','e','l','L','o'};
+		char[] ar2 = {'H','e','l','l','o'};
+		char[] ar3 = {'H','e','l','l','o'};
+		ArrayChar arrayChar1 = new ArrayChar(ar1);
+		ArrayChar arrayChar2 = new ArrayChar(ar2);
+		ArrayChar arrayChar3 = new ArrayChar(ar3);
+		assertTrue (arrayChar2.equals(arrayChar3));
+		assertFalse (arrayChar1.equals(arrayChar3));
+	}
+	@Test
+	void equalsIgnoreCaseTest() {
+		char[] ar1 = {'h','e','l','L','o'};
+		char[] ar2 = {'H','e','l','l','o'};
+		char[] ar3 = {'H','e','l','l','o'};
+		ArrayChar arrayChar1 = new ArrayChar(ar1);
+		ArrayChar arrayChar2 = new ArrayChar(ar2);
+		ArrayChar arrayChar3 = new ArrayChar(ar3);
+		assertTrue (arrayChar2.equalsIgnoreCase(arrayChar3));
+		assertTrue (arrayChar1.equalsIgnoreCase(arrayChar3));
+	}
 }

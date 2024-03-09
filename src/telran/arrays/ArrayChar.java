@@ -27,4 +27,36 @@ public class ArrayChar {
 		}
 		return index;
 	}
+	public int count(char character) {
+		int index = 0;
+		for(int i=0; i<array.length; i++) {
+			if(array[i] == character) index++;
+		}
+		return index;
+	}
+	public int compareToIgnporeCase(ArrayChar another) {
+		int length = Math.min(this.array.length, another.array.length);
+		int index = 0;
+		while(index<length && 
+				Character.toLowerCase(Character.toUpperCase(this.array[index])) == 
+				Character.toLowerCase(Character.toUpperCase(another.array[index]))) {
+			index ++;
+		}
+		return index == length ? this.array.length - another.array.length : this.array[index] - another.array[index];
+	}
+	public boolean contains (char character) {
+		boolean index = false;
+		for(int i=0; i<array.length; i++) {
+			if(array[i] == character) index=true;
+		}
+		return index;
+	}
+	public boolean equals(ArrayChar another) {
+		int index = compareTo(another);
+		return index == 0 ? true:false;
+	}
+	public boolean equalsIgnoreCase(ArrayChar another) {
+		int index = compareToIgnporeCase(another);
+		return index == 0 ? true:false;
+	}
 }
